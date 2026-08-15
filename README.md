@@ -228,17 +228,12 @@ val result: ApiArray = domainArray.mapper {
 }
 ```
 
-### IntelliJ Analysis
+### IntelliJ
 
-IntelliJ bundles its own Kotlin compiler, so loading a third-party FIR plugin in
-the editor is version-sensitive. If editor diagnostics do not load:
-
-1. Trust the project and enable Kotlin K2 mode.
-2. Open **Help > Find Action > Registry**.
-3. Set `kotlin.k2.only.bundled.compiler.plugins.enabled` to `false`.
-4. Sync the Gradle project.
-
-Gradle compilation remains the authoritative validation path.
+The compiler plugin runs during Gradle compilation only. It does not provide
+IntelliJ inspections or editor diagnostics, and loading it into IntelliJ's K2
+analysis engine is not supported. Keep IntelliJ's bundled-compiler-plugin
+restriction enabled and use Gradle compilation for mapping validation.
 
 ## Development
 
