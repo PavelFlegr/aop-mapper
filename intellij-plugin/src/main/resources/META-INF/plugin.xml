@@ -1,10 +1,10 @@
 <idea-plugin>
-    <id>io.github.enummapper.ide</id>
-    <name>Enum Mapper</name>
+    <id>cz.pavelflegr.remap.ide</id>
+    <name>Remap</name>
     <vendor>Pavel Flegr</vendor>
 
     <description><![CDATA[
-        Provides live validation for Enum Mapper calls in Kotlin source files.
+        Provides live validation for Remap calls in Kotlin source files.
         Gradle compilation remains responsible for generated mapping code.
     ]]></description>
 
@@ -14,12 +14,12 @@
     <extensions defaultExtensionNs="com.intellij">
         <localInspection
             language="kotlin"
-            shortName="EnumMapperMapping"
-            displayName="Invalid Enum Mapper mapping"
-            groupName="Enum Mapper"
+            shortName="RemapMapping"
+            displayName="Invalid Remap mapping"
+            groupName="Remap"
             enabledByDefault="true"
             level="ERROR"
-            implementationClass="io.github.enummapper.intellij.EnumMapperMappingInspection" />
+            implementationClass="cz.pavelflegr.remap.intellij.RemapMappingInspection" />
     </extensions>
 
     <extensions defaultExtensionNs="org.jetbrains.kotlin">

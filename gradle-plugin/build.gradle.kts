@@ -3,7 +3,7 @@ plugins {
     kotlin("jvm") version "2.3.20"
 }
 
-group = "io.github.enummapper"
+group = "cz.pavelflegr.remap"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -20,10 +20,10 @@ kotlin {
 
 gradlePlugin {
     plugins {
-        create("enumMapper") {
-            id = "io.github.enummapper"
-            implementationClass = "io.github.enummapper.gradle.EnumMapperGradlePlugin"
-            displayName = "Enum Mapper"
+        create("remap") {
+            id = "cz.pavelflegr.remap"
+            implementationClass = "cz.pavelflegr.remap.gradle.RemapGradlePlugin"
+            displayName = "Remap"
             description = "Enables Kotlin FIR validation for enum mappings"
         }
     }

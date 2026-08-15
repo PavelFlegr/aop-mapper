@@ -5,7 +5,7 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.18.1"
 }
 
-group = "io.github.enummapper"
+group = "cz.pavelflegr.remap"
 version = "1.0.1-SNAPSHOT"
 
 repositories {

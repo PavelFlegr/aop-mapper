@@ -1,1 +1,1 @@
-io.github.enummapper.compiler.EnumMapperCompilerPluginRegistrar
+cz.pavelflegr.remap.compiler.RemapCompilerPluginRegistrar

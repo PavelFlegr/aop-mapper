@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "enum-mapper-gradle-plugin"
+rootProject.name = "remap-gradle-plugin"

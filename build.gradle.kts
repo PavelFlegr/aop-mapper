@@ -1,9 +1,8 @@
 plugins {
-    `java-library`
     kotlin("jvm") version "2.3.20"
 }
 
-group = "io.github.enummapper"
+group = "cz.pavelflegr.remap"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -15,7 +14,6 @@ java {
         languageVersion = JavaLanguageVersion.of(17)
     }
     withSourcesJar()
-    withJavadocJar()
 }
 
 kotlin {
@@ -33,14 +31,10 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-tasks.withType<JavaCompile>().configureEach {
-    options.release = 17
-}
-
 tasks.test {
     dependsOn(tasks.jar)
     doFirst {
-        systemProperty("enumMapper.jar", tasks.jar.get().archiveFile.get().asFile.absolutePath)
+        systemProperty("remap.jar", tasks.jar.get().archiveFile.get().asFile.absolutePath)
     }
     useJUnitPlatform()
 }

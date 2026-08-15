@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.3.20"
-    id("io.github.enummapper")
+    id("cz.pavelflegr.remap")
 }
 
 repositories {
@@ -9,7 +9,7 @@ repositories {
 
 configurations.configureEach {
     resolutionStrategy.dependencySubstitution {
-        substitute(module("io.github.enummapper:enum-mapper"))
+        substitute(module("cz.pavelflegr.remap:remap"))
             .using(project(":"))
     }
 }

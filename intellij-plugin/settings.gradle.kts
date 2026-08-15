@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "enum-mapper-intellij"
+rootProject.name = "remap-intellij"
