@@ -230,10 +230,27 @@ val result: ApiArray = domainArray.mapper {
 
 ### IntelliJ
 
-The compiler plugin runs during Gradle compilation only. It does not provide
-IntelliJ inspections or editor diagnostics, and loading it into IntelliJ's K2
-analysis engine is not supported. Keep IntelliJ's bundled-compiler-plugin
-restriction enabled and use Gradle compilation for mapping validation.
+A dedicated IntelliJ plugin provides live Kotlin inspections without loading the
+compiler plugin into IntelliJ's K2 analysis engine. It reports the same enum,
+property, type, collection, and map validation failures while editing. Gradle
+compilation remains responsible for validation and generated mapping code.
+
+Build the plugin against IntelliJ IDEA 2026.2.1:
+
+```shell
+./gradlew -p intellij-plugin buildPlugin
+```
+
+To build against an existing installation instead of downloading the IDE:
+
+```shell
+./gradlew -p intellij-plugin buildPlugin \
+    -PintellijPlatformPath=/path/to/idea
+```
+
+Install the ZIP from `intellij-plugin/build/distributions` through
+**Settings > Plugins > Install Plugin from Disk**. The current plugin build is
+compatible with IntelliJ branch `262` only.
 
 ## Development
 
