@@ -1,7 +1,8 @@
 <idea-plugin>
-    <id>cz.pavelflegr.remap.ide</id>
+    <id>me.flegr.remap.ide</id>
     <name>Remap</name>
-    <vendor>Pavel Flegr</vendor>
+    <vendor email="PavelFlegr@users.noreply.github.com"
+            url="https://github.com/PavelFlegr">Pavel Flegr</vendor>
 
     <description><![CDATA[
         Provides live validation for Remap calls in Kotlin source files.
@@ -19,7 +20,7 @@
             groupName="Remap"
             enabledByDefault="true"
             level="ERROR"
-            implementationClass="cz.pavelflegr.remap.intellij.RemapMappingInspection" />
+            implementationClass="me.flegr.remap.intellij.RemapMappingInspection" />
     </extensions>
 
     <extensions defaultExtensionNs="org.jetbrains.kotlin">

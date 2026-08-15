@@ -5,8 +5,8 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.18.1"
 }
 
-group = "cz.pavelflegr.remap"
-version = "1.0.1-SNAPSHOT"
+group = "me.flegr.remap"
+version = "0.1.0"
 
 repositories {
     mavenCentral()
@@ -31,22 +31,40 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(25)
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_21
+        jvmTarget = JvmTarget.JVM_25
     }
 }
 
 intellijPlatform {
     pluginConfiguration {
+        changeNotes = """
+            <h3>0.1.0</h3>
+            <ul>
+                <li>Live validation for Remap enum and object mappings.</li>
+                <li>Diagnostics for nested objects, collections, maps, and property overrides.</li>
+            </ul>
+        """.trimIndent()
         ideaVersion {
             sinceBuild = "262.9437"
             untilBuild = "262.*"
         }
+    }
+    publishing {
+        token.set(
+            providers.environmentVariable("JETBRAINS_MARKETPLACE_TOKEN")
+                .orElse(providers.gradleProperty("jetbrainsMarketplaceToken")),
+        )
+    }
+    signing {
+        certificateChain.set(providers.environmentVariable("JETBRAINS_CERTIFICATE_CHAIN"))
+        privateKey.set(providers.environmentVariable("JETBRAINS_PRIVATE_KEY"))
+        password.set(providers.environmentVariable("JETBRAINS_PRIVATE_KEY_PASSWORD"))
     }
 }

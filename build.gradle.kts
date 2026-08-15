@@ -1,9 +1,10 @@
 plugins {
     kotlin("jvm") version "2.3.20"
+    id("com.vanniktech.maven.publish") version "0.37.0"
 }
 
-group = "cz.pavelflegr.remap"
-version = "1.0.0-SNAPSHOT"
+group = "me.flegr.remap"
+version = "0.1.0"
 
 repositories {
     mavenCentral()
@@ -41,4 +42,39 @@ tasks.test {
 
 tasks.jar {
     manifest.attributes["Implementation-Version"] = project.version
+}
+
+mavenPublishing {
+    coordinates("me.flegr.remap", "remap", project.version.toString())
+    publishToMavenCentral()
+    signAllPublications()
+
+    pom {
+        name.set("Remap")
+        description.set("Compile-time checked enum and object mapping for Kotlin/JVM")
+        inceptionYear.set("2026")
+        url.set("https://github.com/PavelFlegr/aop-mapper")
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
+                distribution.set("repo")
+            }
+        }
+        developers {
+            developer {
+                id.set("PavelFlegr")
+                name.set("Pavel Flegr")
+                email.set("PavelFlegr@users.noreply.github.com")
+                organization.set("Pavel Flegr")
+                organizationUrl.set("https://github.com/PavelFlegr")
+                url.set("https://github.com/PavelFlegr")
+            }
+        }
+        scm {
+            url.set("https://github.com/PavelFlegr/aop-mapper")
+            connection.set("scm:git:git://github.com/PavelFlegr/aop-mapper.git")
+            developerConnection.set("scm:git:ssh://git@github.com/PavelFlegr/aop-mapper.git")
+        }
+    }
 }

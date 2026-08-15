@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.3.20"
-    id("cz.pavelflegr.remap")
+    id("me.flegr.remap")
 }
 
 repositories {
@@ -9,7 +9,7 @@ repositories {
 
 configurations.configureEach {
     resolutionStrategy.dependencySubstitution {
-        substitute(module("cz.pavelflegr.remap:remap"))
+        substitute(module("me.flegr.remap:remap"))
             .using(project(":"))
     }
 }

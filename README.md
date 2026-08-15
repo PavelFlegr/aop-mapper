@@ -22,7 +22,7 @@ to each Kotlin compilation:
 ```kotlin
 plugins {
     kotlin("jvm") version "2.3.20"
-    id("cz.pavelflegr.remap") version "1.0.0-SNAPSHOT"
+    id("me.flegr.remap") version "0.1.0"
 }
 ```
 
@@ -222,6 +222,10 @@ To build against an existing installation instead of downloading the IDE:
 Install the ZIP from `intellij-plugin/build/distributions` through
 **Settings > Plugins > Install Plugin from Disk**. The current plugin build is
 compatible with IntelliJ branch `262` only.
+
+## License
+
+Remap is available under the MIT License.
 
 ## Development
 
